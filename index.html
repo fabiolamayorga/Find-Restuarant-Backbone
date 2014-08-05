@@ -1,0 +1,60 @@
+<!doctype html>
+<head>
+	<title>Homework #4</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+	<!--<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+	<script data-main="app/main" src="http://cdn.jsdelivr.net/requirejs/2.1.9/require.min.js"></script>-->
+</head>
+<body>
+	<div id="headerSearchRestaurants" data-role="page" data-content-theme="a">
+		<div data-role="header" data-theme="b">
+			<h1>Restaurants</h1>
+		</div>
+		<div data-role="content" id="searchRestaurants">
+			<form action="" id="resturants">
+				<input type="search" id="search" data-theme="a"/>
+			</form>
+	
+			<div  id="listview"></div>
+			
+			<div data-role="popup" id="popupBasic" class="ui-content"></div>
+			
+
+
+			<script id="resturantItem" type="text/template">
+				<ul data-role="listview" class="ui-listview"  data-inset="true" id="myList">
+					<% _.each(Restaurant, function (restaurant) { %> 
+						<li><a href="#popupBasic" data-rel="popup" data-position-to="window"><%- restaurant.get('name') %></a></li>
+					<% }) %>
+				</ul>
+			</script>
+
+			<script id="restaurantDetails" type="text/template" >
+				<h3>Details</h3>
+				<%-name%><br>
+				<%-address%><br>
+				<%-phone%><br>
+				<a href="<%-reserve_url%>" target="_blank">Reserve Online </a>
+			</script>
+		</div>
+
+
+	</div>
+
+	<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+	<script src="http://cdn.jsdelivr.net/requirejs/2.1.9/require.min.js"></script>
+	<script src="http://cdn.jsdelivr.net/underscorejs/1.5.2/underscore-min.js"></script>
+	<script src="http://cdn.jsdelivr.net/backbonejs/1.1.0/backbone-min.js"></script>
+	<script src="app/models/Restaurant.js"></script>
+	<script src="app/collections/RestaurantList.js"></script>
+	<script src="app/views/RestaurantDetails.js"></script>
+	<script src="app/views/RestaurantSearch.js"></script>
+	<script src="app/app.js"></script>
+
+</body>
+</html>
